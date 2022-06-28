@@ -1,5 +1,5 @@
 ######
-###Mongo CURD
+### Mongo CURD
 
 This project focuses on carying out CRUD(create, retrieve, update, delete) operations using mongoDB, and it has been implemented neatly using the MVC (route, controller and model) pattern. the connection to mongoDB link was embedded into the .env file for security purpose, but the implementation of the connection was initiated in the db > connect.js file and called in the app.js file to complete the conncetion setup and make sure the connection occurs before the application start listening.
 
