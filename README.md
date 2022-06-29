@@ -23,4 +23,7 @@ Create a Node.js server using any framework of choice (optional) and appropriate
 1. Add a Todo task to a Todo collection
 2. Update a particular Todo task
 3. Delete Todo task
-4. Retrieve all Todo tasks (pagination optional
+4. Retrieve all Todo tasks (pagination optional)
+
+
+![1656489791253](https://user-images.githubusercontent.com/52849344/176385042-0f5d3adb-d9f3-4779-8d82-3fdf987e85e1.jpg)
