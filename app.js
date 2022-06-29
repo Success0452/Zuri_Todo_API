@@ -1,13 +1,14 @@
 require("dotenv").config()
-const { urlencoded } = require("express")
 const express = require("express")
 const app = express()
 
+
 const connectDB = require("./db/connect")
+
 const todoRoute = require("./route/todo")
 
 app.use(express.json())
-app.use(urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 
 
 app.use("/api/v1/todo", todoRoute)
