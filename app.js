@@ -6,13 +6,14 @@ const app = express()
 const connectDB = require("./db/connect")
 
 const todoRoute = require("./route/todo")
+const authRoute = require("./route/auth")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
 app.use("/api/v1/todo", todoRoute)
-
+app.use("/api/v1/auth", authRoute)
 
 const port = process.env.PORT || 3000
 

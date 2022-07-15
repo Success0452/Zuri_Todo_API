@@ -1,9 +1,26 @@
 ######
 ### Mongo CURD
 
-This project focuses on carying out CRUD(create, retrieve, update, delete) operations using mongoDB, and it has been implemented neatly using the MVC (route, controller and model) pattern. the connection to mongoDB link was embedded into the .env file for security purpose, but the implementation of the connection was initiated in the db > connect.js file and called in the app.js file to complete the conncetion setup and make sure the connection occurs before the application start listening.
+
+This project focuses on sending automated email with nodemailer, and this was implemented in this project by sending otp to verify account through email on account creation of a new account in order to confirm the owner of the email, and also implemented sending a customize bulk email to all the verified user in the system.
+
+The project also involves CRUD(create, retrieve, update, delete) operations using mongoDB, and it has been implemented neatly using the MVC (route, controller and model) pattern. the connection to mongoDB link was embedded into the .env file for security purpose, but the implementation of the connection was initiated in the db > connect.js file and called in the app.js file to complete the conncetion setup and make sure the connection occurs before the application start listening.
+
+
 
 ## Locally Available Routes
+
+## create new account
+#### localhost:3000/auth/create
+
+## verify account
+#### localhost:3000/auth/verify
+
+## login account
+#### localhost:3000/auth/login
+
+## notify user
+#### localhost:3000/todo/notify
 
 ## Fetch all create todo
 #### localhost:3000/todo/fetch/all
@@ -18,12 +35,11 @@ This project focuses on carying out CRUD(create, retrieve, update, delete) opera
 #### localhost:3000/todo
 
 #### Task Description: 
-Create a Node.js server using any framework of choice (optional) and appropriate folder structure (routes, controllers, models, etc.) which will perform the following functions:
+Create a new NodeJs app or use one you already have to send an automated email to a Gmail account.
 
-1. Add a Todo task to a Todo collection
-2. Update a particular Todo task
-3. Delete Todo task
-4. Retrieve all Todo tasks (pagination optional)
+You are to use "Nodemailer" (the email sender package in NodeJs). So you will install it within your project and then send a mail to your Google mail account.
+
+You can try bulk messaging (optional)
 
 
 ![1656489791253](https://user-images.githubusercontent.com/52849344/176385042-0f5d3adb-d9f3-4779-8d82-3fdf987e85e1.jpg)

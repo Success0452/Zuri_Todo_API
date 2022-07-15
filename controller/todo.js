@@ -1,9 +1,19 @@
 require("dotenv").config()
 const Todo = require("../model/todo")
-
+const User = require("../model/auth")
+const mailer = require("../util/mailer")
 
 /* function to create a new todo*/
 const CreateTodo = async(req, res) => {
+
+    const user = await User.findById(req.header._id)
+
+    if (!user) {
+        return res.status(400).json({
+            msg: "user is not a registered member"
+        })
+    }
+
     const { title, description } = req.body
 
     /* if statement checks for empty parameter */
@@ -14,7 +24,7 @@ const CreateTodo = async(req, res) => {
     }
 
     /* this accept the parameters and store them to create a new todo accordingly*/
-    const create = await Todo.create({ title, description })
+    const create = await Todo.create({ title, description, createdBy: user._id })
 
     /*  checks whether the todo didn't encounter error while been created*/
     if (!create) {
@@ -39,6 +49,14 @@ const CreateTodo = async(req, res) => {
 
 /* function to update a particular todo */
 const UpdateTodo = async(req, res) => {
+
+    const user = await User.findById(req.header._id)
+
+    if (!user) {
+        return res.status(400).json({
+            msg: "user is not a registered member"
+        })
+    }
 
     /* reads the parameter from the url*/
     const { id } = req.params
@@ -70,6 +88,14 @@ const UpdateTodo = async(req, res) => {
 /* function to delete a particular todo */
 const DeleteTodo = async(req, res) => {
 
+    const user = await User.findById(req.header._id)
+
+    if (!user) {
+        return res.status(400).json({
+            msg: "user is not a registered member"
+        })
+    }
+
     /* reads the parameter from the url */
     const { id } = req.params
 
@@ -85,6 +111,14 @@ const DeleteTodo = async(req, res) => {
 
 /* function to retrive a particular todo */
 const RetrieveOne = async(req, res) => {
+
+    const user = await User.findById(req.header._id)
+
+    if (!user) {
+        return res.status(400).json({
+            msg: "user is not a registered member"
+        })
+    }
 
     /* reads the parameter from the url*/
     const { id } = req.params
@@ -103,6 +137,14 @@ const RetrieveOne = async(req, res) => {
 /* function to retrive all present todo*/
 const RetrieveAll = async(req, res) => {
 
+    const user = await User.findById(req.header._id)
+
+    if (!user) {
+        return res.status(400).json({
+            msg: "user is not a registered member"
+        })
+    }
+
     /* gets all the user present in the database */
     const todo = await Todo.find()
 
@@ -118,6 +160,14 @@ const RetrieveAll = async(req, res) => {
 /* function to delete all present todo */
 const DeleteAllTodo = async(req, res) => {
 
+    const user = await User.findById(req.header._id)
+
+    if (!user) {
+        return res.status(400).json({
+            msg: "user is not a registered member"
+        })
+    }
+
     /* get all the elements in the database and get them deleted*/
     await Todo.deleteMany()
 
@@ -128,6 +178,31 @@ const DeleteAllTodo = async(req, res) => {
     })
 }
 
+const NotifyUser = async(req, res) => {
+
+    const users = await User.find()
+    const toList = []
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].verified === true) {
+            toList.push(users[i].email)
+        }
+    }
+
+    const subject = "Zuri Automated Generated Mail"
+
+    const { message } = req.body
+
+    if (!message) {
+        return res.status(400).json({ msg: "message is required" })
+    }
+    mailer.sendMultiple(toList, subject, `<p> ${message} </p>`)
+
+    res.status(200).json({
+        msg: "email sent successfully",
+        success: true
+    })
+}
+
 /* all functions been exported to be accessed by the route*/
 module.exports = {
     CreateTodo,
@@ -135,5 +210,6 @@ module.exports = {
     DeleteTodo,
     RetrieveAll,
     DeleteAllTodo,
-    RetrieveOne
+    RetrieveOne,
+    NotifyUser
 }

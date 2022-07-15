@@ -10,6 +10,10 @@ const TodoSchema = new mongoose.Schema({
         type: String,
         required: [true, "description is required"],
         trim: true
+    },
+    createdBy: {
+        type: String,
+        required: [true, "createdBy is required"],
     }
 
 }, { timestamps: true })
