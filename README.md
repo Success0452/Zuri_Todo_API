@@ -1,5 +1,5 @@
 ######
-### Mongo CURD
+### Nodemailer Implementation
 
 
 This project focuses on sending automated email with nodemailer, and this was implemented in this project by sending otp to verify account through email on account creation of a new account in order to confirm the owner of the email, and also implemented sending a customize bulk email to all the verified user in the system.
@@ -42,4 +42,5 @@ You are to use "Nodemailer" (the email sender package in NodeJs). So you will in
 You can try bulk messaging (optional)
 
 
-![1656489791253](https://user-images.githubusercontent.com/52849344/176385042-0f5d3adb-d9f3-4779-8d82-3fdf987e85e1.jpg)
+![1657926165636](https://user-images.githubusercontent.com/52849344/179322533-e435e249-82f9-445b-951f-300e6faa959d.jpg)
+![1657926165656](https://user-images.githubusercontent.com/52849344/179322539-cbcde669-6032-4988-b0a2-13dbe51b806a.jpg)
