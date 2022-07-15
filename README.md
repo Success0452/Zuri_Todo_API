@@ -42,5 +42,5 @@ You are to use "Nodemailer" (the email sender package in NodeJs). So you will in
 You can try bulk messaging (optional)
 
 
-![1657926165636](https://user-images.githubusercontent.com/52849344/179322533-e435e249-82f9-445b-951f-300e6faa959d.jpg ){:height="50%" width="50%"}
-![1657926165656](https://user-images.githubusercontent.com/52849344/179322539-cbcde669-6032-4988-b0a2-13dbe51b806a.jpg){:height="50%" width="50%"}
+![1657926165636](https://user-images.githubusercontent.com/52849344/179322533-e435e249-82f9-445b-951f-300e6faa959d.jpg){:class="img-responsive"}
+![1657926165656](https://user-images.githubusercontent.com/52849344/179322539-cbcde669-6032-4988-b0a2-13dbe51b806a.jpg){:class="img-responsive"}
