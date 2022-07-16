@@ -8,10 +8,10 @@ const Otp = new mongoose.Schema({
         type: String
     },
     createdAt: {
-        type: String
+        type: Date
     },
     expiresAt: {
-        type: String
+        type: Date
     }
 })
 
